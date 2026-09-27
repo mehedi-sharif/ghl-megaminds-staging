@@ -3,13 +3,13 @@ import Eyebrow from './Eyebrow.astro';
 import Button from './Button.astro';
 import { BOOKING_URL, solutions } from '../data/site';
 ---
-<section class="bg-deep py-20 lg:py-30">
+<section class="bg-deep py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
       <div class="flex flex-col items-start gap-5">
         <Eyebrow>The solution</Eyebrow>
         <h2 class="text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">
-          White-label HighLevel support by certified admins <span class="text-brand italic">and software engineers</span>
+          White-label HighLevel support by certified admins <span class="text-muted italic">and software engineers.</span>
         </h2>
       </div>
       <div class="flex flex-col gap-5 lg:pt-12">
@@ -20,7 +20,7 @@ import { BOOKING_URL, solutions } from '../data/site';
           Unlike inexperienced VAs, bloated full-time hires, or giant white-label factories, GHL Megaminds delivers autonomous engineering, predictable flat pricing, and dedicated high-touch partnership.
         </p>
         <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-          <Button href={BOOKING_URL}>Partner with us</Button>
+          <Button href={BOOKING_URL} variant="solid">Partner with us</Button>
           <Button href="#offers" variant="outline" arrow>See our offers</Button>
         </div>
       </div>
@@ -36,7 +36,7 @@ import { BOOKING_URL, solutions } from '../data/site';
       <div class="grid gap-6 md:grid-cols-3">
         {solutions.map((s) => (
           <article class="flex flex-col gap-4 rounded-3xl border border-hair bg-card p-8 lg:p-9">
-            <span class="flex size-13 items-center justify-center rounded-[14px] bg-brand text-[15px] font-semibold text-on-brand">{s.n}</span>
+            <span class="flex size-13 items-center justify-center rounded-[14px] border border-hair bg-surface font-serif text-lg text-gold">{s.n}</span>
             <h3 class="text-[26px] leading-tight tracking-tight lg:text-[28px]">{s.title}</h3>
             <p class="leading-relaxed text-muted">{s.body}</p>
           </article>

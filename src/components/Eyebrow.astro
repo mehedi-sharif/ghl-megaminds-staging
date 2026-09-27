@@ -4,8 +4,9 @@ interface Props { class?: string }
 const { class: className = '' } = Astro.props;
 ---
 <span class:list={[
-  'inline-block rounded-full border border-gold/30 bg-gold/8 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-gold',
+  'inline-flex items-center gap-2 rounded-full border border-hair bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium tracking-wide text-muted',
   className,
 ]}>
+  <span class="size-1.5 rounded-full bg-gold" aria-hidden="true"></span>
   <slot />
 </span>

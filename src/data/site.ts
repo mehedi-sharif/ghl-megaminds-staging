@@ -81,7 +81,7 @@ export const team = [
 
 export const offers = [
   {
-    kicker: 'Offer 01 · Onboarding', title: 'Client Onboarding & Setup',
+    kicker: 'Offer 01 · Onboarding', title: 'Client Onboarding & Setup', featured: 'Start here',
     desc: 'Turn new client sign-ups into fully integrated accounts in under 48 hours.',
     price: '$900', regular: '$1,500',
     terms: '50 hours/mo. 2-month minimum. Single setup available at $497/client.',

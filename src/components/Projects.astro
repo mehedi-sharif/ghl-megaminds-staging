@@ -5,12 +5,12 @@ import { projects } from '../data/site';
 
 const INITIAL = 6; // cards visible before "Load more"
 ---
-<section id="projects" class="py-20 lg:py-24">
+<section id="projects" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mb-8 max-w-3xl sm:mb-10">
       <Eyebrow class="mb-5">Projects we built</Eyebrow>
       <h2 class="text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-[54px]">
-        Built for <span class="text-brand">GoHighLevel</span> agencies.
+        Built for <span class="text-muted italic">GoHighLevel agencies.</span>
       </h2>
     </div>
 
@@ -41,7 +41,7 @@ const INITIAL = 6; // cards visible before "Load more"
                 href={p.cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 rounded-full border border-hair bg-canvas px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-transparent hover:bg-brand hover:text-on-brand"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-hair bg-canvas px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-ink hover:bg-ink hover:text-canvas"
               >
                 {p.cta.label} <span aria-hidden="true">→</span>
               </a>

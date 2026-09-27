@@ -3,23 +3,23 @@ import Eyebrow from './Eyebrow.astro';
 import Button from './Button.astro';
 import { BOOKING_URL, steps } from '../data/site';
 ---
-<section id="how-it-works" class="border-y border-hair bg-surface py-20 lg:py-30">
+<section id="how-it-works" class="border-y border-hair bg-surface py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_2fr] lg:gap-20 lg:px-8">
     <div class="flex flex-col items-start gap-5">
       <Eyebrow>How it works</Eyebrow>
       <h2 class="text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-[58px]">
-        3 steps to <span class="text-brand">technical freedom.</span>
+        3 steps to <span class="text-muted italic">technical freedom.</span>
       </h2>
       <p class="text-[17px] leading-relaxed text-muted">
         Our three-step process takes you from identifying bottlenecks to full technical freedom, with clear communication and dedicated execution at every stage.
       </p>
-      <Button href={BOOKING_URL} class="mt-2">Book a discovery call</Button>
+      <Button href={BOOKING_URL} variant="solid" class="mt-2">Book a discovery call</Button>
     </div>
 
     <ol class="flex flex-col">
       {steps.map((s) => (
         <li class="grid grid-cols-[72px_1fr] gap-5 border-t border-hair py-8 sm:grid-cols-[120px_1fr_auto] sm:gap-8 sm:py-9">
-          <span class="text-brand font-serif text-5xl leading-[0.9] tracking-tight sm:text-7xl">{s.n}</span>
+          <span class="font-serif text-5xl text-dim leading-[0.9] tracking-tight sm:text-7xl">{s.n}</span>
           <div class="flex flex-col gap-2.5">
             <h3 class="text-[28px] tracking-tight sm:text-[32px]">{s.title}</h3>
             <p class="text-[16.5px] leading-relaxed text-muted">{s.body}</p>
