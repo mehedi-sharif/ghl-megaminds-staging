@@ -1,0 +1,47 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import Button from './Button.astro';
+import { BOOKING_URL, solutions } from '../data/site';
+---
+<section class="bg-deep py-20 lg:py-30">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+      <div class="flex flex-col items-start gap-5">
+        <Eyebrow>The solution</Eyebrow>
+        <h2 class="text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">
+          White-label HighLevel support by certified admins <span class="text-brand italic">and software engineers</span>
+        </h2>
+      </div>
+      <div class="flex flex-col gap-5 lg:pt-12">
+        <p class="text-lg leading-relaxed text-muted">
+          We spent the last 10+ years building software, web applications, custom platforms, and real digital solutions for global businesses. Now, we bring elite software engineering capabilities exclusively to the GoHighLevel ecosystem.
+        </p>
+        <p class="text-lg leading-relaxed text-muted">
+          Unlike inexperienced VAs, bloated full-time hires, or giant white-label factories, GHL Megaminds delivers autonomous engineering, predictable flat pricing, and dedicated high-touch partnership.
+        </p>
+        <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+          <Button href={BOOKING_URL}>Partner with us</Button>
+          <Button href="#offers" variant="outline" arrow>See our offers</Button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col gap-8 lg:mt-18">
+      <div class="flex items-center gap-6">
+        <p class="font-serif text-2xl tracking-tight lg:shrink-0 lg:text-[28px]">
+          You do not have to pick between cheap, slow, or bloated. We're offering…
+        </p>
+        <div class="hidden h-px grow bg-hair lg:block"></div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {solutions.map((s) => (
+          <article class="flex flex-col gap-4 rounded-3xl border border-hair bg-card p-8 lg:p-9">
+            <span class="flex size-13 items-center justify-center rounded-[14px] bg-brand text-[15px] font-semibold text-on-brand">{s.n}</span>
+            <h3 class="text-[26px] leading-tight tracking-tight lg:text-[28px]">{s.title}</h3>
+            <p class="leading-relaxed text-muted">{s.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { testimonial as t } from '../data/site';
+---
+<section id="testimonial" class="py-20 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-8 max-w-3xl sm:mb-10">
+      <Eyebrow class="mb-5">Client testimonial</Eyebrow>
+      <h2 class="text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-[54px]">
+        What our clients <span class="text-brand">say</span>
+      </h2>
+    </div>
+
+    <figure class="overflow-hidden rounded-[32px] border border-hair shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+      <div class="grid min-h-[260px] lg:grid-cols-[1.05fr_1.75fr]">
+        <div class="relative min-h-[320px] lg:min-h-full">
+          <img src={t.photo} alt={t.alt} width="500" height="600" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative flex items-center justify-center bg-card p-8 sm:p-10 lg:p-14">
+          <div class="relative max-w-3xl">
+            <div class="mb-5 text-6xl leading-none font-black text-gold/80" aria-hidden="true">“</div>
+            <blockquote class="font-serif text-[1.1rem] leading-[1.15] tracking-[-0.02em] sm:text-[1.35rem] lg:text-[1.85rem] lg:leading-[1.08]">
+              {t.quote}
+            </blockquote>
+            <figcaption class="mt-8">
+              <p class="text-2xl font-medium">{t.name}</p>
+              <p class="mt-1 text-muted">{t.role}</p>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+import { stack } from '../data/site';
+---
+<section aria-label="Tools we work with" class="border-y border-hair bg-surface">
+  <div class="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-7 sm:px-6 lg:flex-row lg:items-center lg:gap-10 lg:px-8">
+    <p class="shrink-0 text-xs font-semibold leading-relaxed tracking-widest text-muted lg:w-52">
+      WE PLUG INTO THE STACK YOU ALREADY RUN
+    </p>
+    <ul class="flex grow flex-wrap gap-2.5 lg:justify-between">
+      {stack.map((t) => (
+        <li class="flex h-10 items-center rounded-full border border-hair bg-canvas px-4 text-[15px] font-medium">{t}</li>
+      ))}
+    </ul>
+  </div>
+</section>

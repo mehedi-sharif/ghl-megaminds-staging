@@ -1,0 +1,35 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { problems } from '../data/site';
+---
+<section id="why-us" class="py-20 lg:py-30">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-20">
+      <div class="flex flex-col items-start gap-5">
+        <Eyebrow>The problem</Eyebrow>
+        <h2 class="text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">
+          Stop wasting time babysitting VAs or <span class="text-brand">wrestling with complex tech</span>
+        </h2>
+      </div>
+      <p class="text-lg leading-relaxed text-muted lg:text-[19px]">
+        You started your agency to build a scalable business, acquire high-ticket clients, and generate revenue. You did not start it to spend hours fixing broken workflows or micro-managing inexperienced virtual assistants.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3 lg:mt-16">
+      {problems.map((p) => (
+        <article class="flex flex-col gap-5 rounded-3xl border border-hair bg-surface p-8 lg:min-h-[300px] lg:p-9">
+          <div class="flex items-center justify-between">
+            <span class="text-[13px] font-semibold tracking-wider text-muted">OPTION {p.n}</span>
+            <span class="flex h-7 items-center gap-1.5 rounded-full bg-gold/10 px-3 text-[13px] font-semibold text-gold">
+              <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+              {p.flag}
+            </span>
+          </div>
+          <h3 class="text-[28px] leading-tight tracking-tight lg:text-3xl">{p.title}</h3>
+          <p class="leading-relaxed text-muted">{p.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
