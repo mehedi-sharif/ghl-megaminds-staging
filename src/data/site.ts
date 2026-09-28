@@ -1,13 +1,18 @@
 // All page copy lives here — edit text, prices and links in one place.
 
+// GoHighLevel form shown on /contact. Paste the form ID from GHL → Sites → Forms →
+// Integrate (the part after /widget/form/ in the embed URL). Empty = booking fallback.
+export const CONTACT_FORM_ID = '';
+
 export const BOOKING_URL =
   'https://api.leadconnectorhq.com/widget/booking/b40dt1YgHIrDlJDWZd1D';
 
 export const nav = [
-  { label: 'Services', href: '#offers' },
-  { label: 'How we work', href: '#how-it-works' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Team', href: '#team' },
+  { label: 'Services', href: '/#offers' },
+  { label: 'How we work', href: '/#how-it-works' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Team', href: '/#team' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const heroStats = [
