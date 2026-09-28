@@ -73,17 +73,17 @@ export const solutions = [
 export const team = [
   {
     name: 'Mehedi Sharif', role: 'Founder & Software Engineer', years: '13+', certified: true,
-    photo: '/images/team/mehedi-sharif.png',
+    photo: '/images/team/mehedi-sharif.jpg',
     alt: 'Mehedi Sharif - Certified GoHighLevel Admin & Founder at GHL Megaminds',
   },
   {
     name: 'Farhad Hossen', role: 'Marketing Engineer', years: '6+', certified: true,
-    photo: '/images/team/farhad-hossen.png',
+    photo: '/images/team/farhad-hossen.jpg',
     alt: 'Farhad Hossen - Certified GoHighLevel Admin & Marketing Engineer at GHL Megaminds',
   },
   {
     name: 'Somrat Sorkar', role: 'Senior Software Engineer', years: '9+', certified: false,
-    photo: '/images/team/somrat-sorkar.png',
+    photo: '/images/team/somrat-sorkar.jpg',
     alt: 'Somrat Sorkar - Senior Software Engineer at GHL Megaminds',
   },
 ];
