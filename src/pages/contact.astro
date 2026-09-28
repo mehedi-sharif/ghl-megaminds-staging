@@ -91,4 +91,15 @@ const formSrc = form.id && `${form.host}/widget/form/${form.id}`;
   <Footer />
 
   {formSrc && <script is:inline src={`${form.host}/js/form_embed.js`}></script>}
+  {formSrc && (
+    <script is:inline define:vars={{ frameId: `inline-${form.id}` }}>
+      // GHL's embed keeps the form hidden until the form reports its height.
+      // If that handshake never arrives, reveal the form anyway.
+      setTimeout(() => {
+        const f = document.getElementById(frameId);
+        if (!f || getComputedStyle(f).visibility !== 'hidden') return;
+        Object.assign(f.style, { visibility: 'visible', opacity: '1', pointerEvents: 'auto', position: 'relative', left: '' });
+      }, 4000);
+    </script>
+  )}
 </Layout>
