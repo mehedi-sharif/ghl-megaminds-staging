@@ -5,7 +5,7 @@ import { BOOKING_URL, steps } from '../data/site';
 ---
 <section id="how-it-works" class="border-y border-hair bg-surface py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-20">
+    <div data-reveal class="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-20">
       <div class="flex flex-col items-start gap-5">
         <Eyebrow>How it works</Eyebrow>
         <h2 class="text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-[58px]">
@@ -17,7 +17,7 @@ import { BOOKING_URL, steps } from '../data/site';
       </p>
     </div>
 
-    <ol class="relative mt-12 grid gap-5 lg:mt-16 lg:grid-cols-3">
+    <ol data-reveal-stagger class="relative mt-12 grid gap-5 lg:mt-16 lg:grid-cols-3">
       <!-- Connector line behind the step markers (desktop) -->
       <span class="absolute top-7 right-[16%] left-[16%] hidden h-px bg-[linear-gradient(90deg,transparent,var(--color-hair)_10%,var(--color-hair)_90%,transparent)] lg:block" aria-hidden="true"></span>
       {steps.map((s, i) => (

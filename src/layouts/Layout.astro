@@ -21,6 +21,7 @@ const ogImage = hasPublicFile(ogPath) ? new URL(ogPath, Astro.site) : undefined;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -48,5 +49,27 @@ const ogImage = hasPublicFile(ogPath) ? new URL(ogPath, Astro.site) : undefined;
       Skip to content
     </a>
     <slot />
+
+    <script>
+      // Scroll reveal: stagger children of [data-reveal-stagger], then fade in on enter.
+      document.querySelectorAll<HTMLElement>('[data-reveal-stagger]').forEach((group) => {
+        [...group.children].forEach((child, i) => {
+          if (!(child instanceof HTMLElement) || child.hasAttribute('aria-hidden')) return;
+          child.dataset.reveal = '';
+          child.style.setProperty('--i', String(i));
+        });
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        },
+        { rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    </script>
   </body>
 </html>

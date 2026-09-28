@@ -46,10 +46,10 @@ import { BOOKING_URL, heroStats, setupChecklist } from '../data/site';
         </div>
 
         <ul class="flex flex-col">
-          {setupChecklist.map((s) => (
+          {setupChecklist.map((s, i) => (
             <li class="flex items-center gap-3.5 border-b border-hair py-3">
               {s.done ? (
-                <span class="flex size-[26px] shrink-0 items-center justify-center rounded-full bg-green/15 text-green">
+                <span class="tick-pop flex size-[26px] shrink-0 items-center justify-center rounded-full bg-green/15 text-green" style={`--i:${i}`}>
                   <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                 </span>
               ) : (
@@ -63,7 +63,7 @@ import { BOOKING_URL, heroStats, setupChecklist } from '../data/site';
 
         <div class="flex flex-col gap-2.5">
           <div class="flex justify-between text-[13px] text-muted"><span>Setup progress</span><span>Target: under 48 hours</span></div>
-          <div class="h-2 overflow-hidden rounded-full bg-hair"><div class="h-2 w-[71%] rounded-full bg-brand"></div></div>
+          <div class="h-2 overflow-hidden rounded-full bg-hair"><div class="bar-fill h-2 w-[71%] rounded-full bg-brand"></div></div>
         </div>
 
         <div class="flex items-center gap-2.5 rounded-xl bg-surface px-4 py-3.5 text-sm text-ink">

@@ -6,14 +6,14 @@ const hasPhoto = hasPublicFile(t.photo);
 ---
 <section id="testimonial" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-8 max-w-3xl sm:mb-10">
+    <div data-reveal class="mb-8 max-w-3xl sm:mb-10">
       <Eyebrow class="mb-5">Client testimonial</Eyebrow>
       <h2 class="text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-[54px]">
         What our clients <span class="text-muted italic">say</span>
       </h2>
     </div>
 
-    <figure class="overflow-hidden rounded-[32px] border border-hair shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+    <figure data-reveal class="overflow-hidden rounded-[32px] border border-hair shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
       <div class:list={['grid min-h-[260px]', hasPhoto && 'lg:grid-cols-[1.05fr_1.75fr]']}>
         {hasPhoto && (
           <div class="relative min-h-[320px] lg:min-h-full">

@@ -4,7 +4,7 @@ import { BOOKING_URL, offers } from '../data/site';
 ---
 <section id="offers" class="bg-deep py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col items-center gap-5 text-center">
+    <div data-reveal class="flex flex-col items-center gap-5 text-center">
       <span class="flex h-9 items-center rounded-full border border-gold/40 bg-gold/10 px-4 text-sm font-semibold text-gold">Launch offer · 40% off</span>
       <h2 class="text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
         Offload the tech.<br /><span class="text-muted italic">Keep the margins.</span>
@@ -14,7 +14,7 @@ import { BOOKING_URL, offers } from '../data/site';
       </p>
     </div>
 
-    <div class="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-3">
+    <div data-reveal-stagger class="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-3">
       {offers.map((o) => (
         <article class:list={[
           'relative flex min-w-0 flex-col gap-6 rounded-[28px] border p-6 sm:p-8 lg:p-9',
@@ -57,7 +57,7 @@ import { BOOKING_URL, offers } from '../data/site';
     </div>
 
     <!-- Guarantee -->
-    <div class="mx-auto mt-14 max-w-4xl rounded-[32px] border border-hair bg-surface p-8 text-center sm:p-12">
+    <div data-reveal class="mx-auto mt-14 max-w-4xl rounded-[32px] border border-hair bg-surface p-8 text-center sm:p-12">
       <div class="mx-auto mb-5 flex size-14 items-center justify-center rounded-full bg-green/12 text-green ring-1 ring-green/30">
         <svg class="size-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
       </div>

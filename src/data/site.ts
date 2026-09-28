@@ -144,6 +144,7 @@ export type ProjectPreview =
 export const projects: {
   type: string; title: string; body: string; preview: ProjectPreview;
   downloads?: number; cta?: { label: string; href: string }; comingSoon?: boolean;
+  image?: string; // real screenshot in public/; falls back to the illustration
 }[] = [
   {
     type: 'GoHighLevel Custom App', downloads: 196, preview: 'middleware',
@@ -152,7 +153,7 @@ export const projects: {
     cta: { label: 'View on GHL Marketplace', href: 'https://marketplace.gohighlevel.com/integration/69eef1cd71a26a0956e537b8' },
   },
   {
-    type: 'Web Application', preview: 'pricing',
+    type: 'Web Application', preview: 'pricing', image: '/images/projects/my-crm-pricing.jpg',
     title: 'My CRM Pricing',
     body: 'Show prospects how many subscriptions your CRM replaces and exactly what they save every month. Interactive comparison tables built for SaaS resellers.',
     cta: { label: 'Live Demo', href: 'https://mycrmpricing.vercel.app/' },
@@ -176,7 +177,7 @@ export const projects: {
     cta: { label: 'View on GHL Marketplace', href: 'https://marketplace.gohighlevel.com/integration/6a4364d3054791173e2b5f5a/' },
   },
   {
-    type: 'Headless Template', preview: 'astro',
+    type: 'Headless Template', preview: 'astro', image: '/images/projects/astro-ghl-template.jpg',
     title: 'Astro + GoHighLevel Website Template',
     body: 'Native HighLevel sites are slow. We built this template to prove you never have to settle for sluggish pages. Get full design control with Astro while HighLevel powers your backend.',
     cta: { label: 'Live Demo', href: 'https://automark-astro.vercel.app/' },
