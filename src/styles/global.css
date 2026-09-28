@@ -32,6 +32,20 @@
   color: transparent;
 }
 
+/* Infinite logo ticker (StackStrip). Track holds two copies; shift by one copy + gap. */
+@keyframes marquee {
+  to { transform: translateX(calc(-50% - 5px)); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

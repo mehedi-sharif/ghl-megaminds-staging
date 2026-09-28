@@ -46,6 +46,15 @@ export const problems = [
   },
 ];
 
+export const advantages = [
+  'Certified HighLevel admins backed by 10+ years of software engineering',
+  'Advanced workflows, webhooks, and APIs built without hand-holding',
+  'Flat monthly pricing: no salaries, payroll taxes, or recruiting',
+  'Capped client intake, so you get direct partner access',
+  "Delivered under your agency's brand; clients never see us",
+  '7-day, 100% money-back guarantee',
+];
+
 export const solutions = [
   {
     n: '01', title: 'Certified admins & engineers, zero babysitting',
