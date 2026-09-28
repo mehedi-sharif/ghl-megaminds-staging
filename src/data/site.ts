@@ -1,8 +1,13 @@
 // All page copy lives here — edit text, prices and links in one place.
 
-// GoHighLevel form shown on /contact. Paste the form ID from GHL → Sites → Forms →
-// Integrate (the part after /widget/form/ in the embed URL). Empty = booking fallback.
-export const CONTACT_FORM_ID = '';
+// GoHighLevel form shown on /contact (GHL → Sites → Forms → Integrate → Embed).
+// Set id to '' to show the booking-call fallback instead.
+export const contactForm = {
+  id: 'Fognmtp89XFcCAgplgVJ',
+  name: 'Discovery Call - White Label Partnership',
+  host: 'https://links.ghlmegaminds.com',
+  height: 472,
+};
 
 export const BOOKING_URL =
   'https://api.leadconnectorhq.com/widget/booking/b40dt1YgHIrDlJDWZd1D';
