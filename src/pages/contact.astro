@@ -5,9 +5,10 @@ import Footer from '../components/Footer.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { BOOKING_URL, contactForm as form, steps, trust } from '../data/site';
+import { BOOKING_URL, bookingCalendar as cal, contactForm as form } from '../data/site';
 
 const formSrc = !form.webhookUrl && form.id && `${form.host}/widget/form/${form.id}`;
+const calendarSrc = `${cal.host}/widget/booking/${cal.id}`;
 ---
 <Layout
   title="Contact | GHL Megaminds"
@@ -17,9 +18,9 @@ const formSrc = !form.webhookUrl && form.id && `${form.host}/widget/form/${form.
   <main id="main-content" class="relative overflow-hidden">
     <div class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(252,192,0,0.08),transparent)]" aria-hidden="true"></div>
 
-    <section class="relative mx-auto grid max-w-7xl gap-12 px-4 pt-14 pb-20 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:px-8 lg:pt-24 lg:pb-28">
-      <!-- Intro -->
-      <div class="flex flex-col gap-7">
+    <section class="relative mx-auto grid max-w-7xl gap-12 px-4 pt-14 pb-20 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-16 lg:px-8 lg:pt-24 lg:pb-28">
+      <!-- Intro + contact form -->
+      <div class="flex min-w-0 flex-col gap-7">
         <Eyebrow class="self-start">Contact</Eyebrow>
         <h1 class="text-5xl leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[64px]">
           Let's talk about <span class="text-muted italic">your agency.</span>
@@ -30,79 +31,67 @@ const formSrc = !form.webhookUrl && form.id && `${form.host}/widget/form/${form.
 
         <div class="flex flex-col gap-4 border-t border-hair pt-7">
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">What happens next</p>
-          <ol class="flex flex-col gap-4">
-            {steps.map((s) => (
-              <li class="flex gap-4">
-                <span class="flex size-9 shrink-0 items-center justify-center rounded-full border border-hair bg-surface font-serif text-sm">{s.n}</span>
-                <div>
-                  <p class="font-semibold">{s.title}</p>
-                  <p class="mt-0.5 text-[15px] leading-relaxed text-muted">{s.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div class="rounded-[28px] border border-hair bg-card p-2 sm:p-3">
+            {form.webhookUrl ? (
+              <ContactForm webhookUrl={form.webhookUrl} />
+            ) : formSrc ? (
+              <iframe
+                src={formSrc}
+                style={`width:100%;height:${form.height}px;border:none;border-radius:20px`}
+                id={`inline-${form.id}`}
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name={form.name}
+                data-height={form.height}
+                data-layout-iframe-id={`inline-${form.id}`}
+                data-form-id={form.id}
+                data-cookie-consent="true"
+                data-cookie-consent-provider="auto"
+                title={form.name}
+                class="block"
+              ></iframe>
+            ) : (
+              <div class="flex flex-col items-center gap-4 rounded-[20px] bg-surface px-6 py-10 text-center">
+                <p class="leading-relaxed text-muted">Prefer to talk it through? Book a time on the calendar.</p>
+                <Button href={BOOKING_URL} arrow>Book a discovery call</Button>
+              </div>
+            )}
+          </div>
         </div>
-
-        <ul class="flex flex-col gap-2.5 text-[15px] text-muted">
-          {trust.map((t) => (
-            <li class="flex items-center gap-2.5">
-              <svg class="size-4 text-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
-              {t}
-            </li>
-          ))}
-        </ul>
       </div>
 
-      <!-- Form -->
-      <div class="rounded-[28px] border border-hair bg-card p-2 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] sm:p-3">
-        {form.webhookUrl ? (
-          <ContactForm webhookUrl={form.webhookUrl} />
-        ) : formSrc ? (
-          <iframe
-            src={formSrc}
-            style={`width:100%;height:${form.height}px;border:none;border-radius:20px`}
-            id={`inline-${form.id}`}
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name={form.name}
-            data-height={form.height}
-            data-layout-iframe-id={`inline-${form.id}`}
-            data-form-id={form.id}
-            data-cookie-consent="true"
-            data-cookie-consent-provider="auto"
-            title={form.name}
-            class="block"
-          ></iframe>
-        ) : (
-          <div class="flex min-h-[480px] flex-col items-center justify-center gap-5 rounded-[20px] bg-surface px-6 py-16 text-center">
-            <span class="flex size-14 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-gold/30">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
-            </span>
-            <h2 class="text-3xl tracking-tight">Book a 30-minute discovery call</h2>
-            <p class="max-w-sm leading-relaxed text-muted">Pick a time that suits you and we'll walk through your agency's setup together.</p>
-            <Button href={BOOKING_URL} size="lg" arrow>Choose a time</Button>
-          </div>
-        )}
+      <!-- Booking calendar -->
+      <div class="min-w-0 overflow-hidden rounded-[28px] border border-hair bg-card p-2 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] sm:p-3 lg:sticky lg:top-28">
+        <iframe
+          src={calendarSrc}
+          allow="payment"
+          style="width:100%;border:none;overflow:hidden;border-radius:20px"
+          scrolling="no"
+          id={cal.iframeId}
+          title="Book a discovery call"
+          class="block min-h-[640px]"
+        ></iframe>
       </div>
     </section>
   </main>
   <Footer />
 
-  {formSrc && <script is:inline src={`${form.host}/js/form_embed.js`}></script>}
-  {formSrc && (
-    <script is:inline define:vars={{ frameId: `inline-${form.id}` }}>
-      // GHL's embed keeps the form hidden until the form reports its height.
-      // If that handshake never arrives, reveal the form anyway.
-      setTimeout(() => {
-        const f = document.getElementById(frameId);
-        if (!f || getComputedStyle(f).visibility !== 'hidden') return;
+  <!-- One GHL embed script sizes both the form and the calendar -->
+  <script is:inline src={`${cal.host}/js/form_embed.js`}></script>
+  <script is:inline define:vars={{ frameIds: [formSrc ? `inline-${form.id}` : '', cal.iframeId].filter(Boolean) }}>
+    // GHL's embed keeps an iframe hidden until it reports its height.
+    // If that handshake never arrives, reveal it anyway.
+    setTimeout(() => {
+      for (const id of frameIds) {
+        const f = document.getElementById(id);
+        if (!f || getComputedStyle(f).visibility !== 'hidden') continue;
         Object.assign(f.style, { visibility: 'visible', opacity: '1', pointerEvents: 'auto', position: 'relative', left: '' });
-      }, 4000);
-    </script>
-  )}
+      }
+    }, 4000);
+  </script>
 </Layout>

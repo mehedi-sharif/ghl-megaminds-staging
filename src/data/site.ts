@@ -11,6 +11,13 @@ export const contactForm = {
   height: 472,
 };
 
+// GoHighLevel booking calendar embedded on /contact.
+export const bookingCalendar = {
+  id: 'b40dt1YgHIrDlJDWZd1D',
+  iframeId: 'b40dt1YgHIrDlJDWZd1D_1790652759354',
+  host: 'https://links.ghlmegaminds.com',
+};
+
 export const BOOKING_URL =
   'https://api.leadconnectorhq.com/widget/booking/b40dt1YgHIrDlJDWZd1D';
 
