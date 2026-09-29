@@ -4,9 +4,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { BOOKING_URL, contactForm as form, steps, trust } from '../data/site';
 
-const formSrc = form.id && `${form.host}/widget/form/${form.id}`;
+const formSrc = !form.webhookUrl && form.id && `${form.host}/widget/form/${form.id}`;
 ---
 <Layout
   title="Contact | GHL Megaminds"
@@ -54,7 +55,9 @@ const formSrc = form.id && `${form.host}/widget/form/${form.id}`;
 
       <!-- Form -->
       <div class="rounded-[28px] border border-hair bg-card p-2 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] sm:p-3">
-        {formSrc ? (
+        {form.webhookUrl ? (
+          <ContactForm webhookUrl={form.webhookUrl} />
+        ) : formSrc ? (
           <iframe
             src={formSrc}
             style={`width:100%;height:${form.height}px;border:none;border-radius:20px`}

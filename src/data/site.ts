@@ -1,8 +1,10 @@
 // All page copy lives here — edit text, prices and links in one place.
 
-// GoHighLevel form shown on /contact (GHL → Sites → Forms → Integrate → Embed).
-// Set id to '' to show the booking-call fallback instead.
+// Contact page form. If webhookUrl is set, the site's own form posts to that
+// GHL Inbound Webhook (Automation → Workflows → trigger "Inbound Webhook").
+// Otherwise the embedded GHL form below is used; with neither, a booking CTA.
 export const contactForm = {
+  webhookUrl: '',
   id: 'Fognmtp89XFcCAgplgVJ',
   name: 'Discovery Call - White Label Partnership',
   host: 'https://links.ghlmegaminds.com',
